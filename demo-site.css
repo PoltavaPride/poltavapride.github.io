@@ -80,8 +80,9 @@ main {
   height: calc(100% - 100px);
   background-color: #fff;
   box-shadow: inset 0px 0px 15px 1px rgba(81, 77, 92, 0.5);
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
 }
 main#home {
   background-image: url("./home.png");
