@@ -1,14 +1,13 @@
 console.log("WSP Script init!");
 
-// window.addEventListener("beforeunload", function(event) {
-//   event.preventDefault();
-//   localStorage.removeItem("closeSipSession");
-//   localStorage.removeItem("isIncomingInviteWaiting");
-//   localStorage.removeItem("isActiveCall");
-//   localStorage.removeItem("activeCallBtnState");
-//   localStorage.setItem("closeSipSession", "close");
-//   event.returnValue = false;
-// });
+window.addEventListener("beforeunload", function(event) {
+  // event.preventDefault();
+  localStorage.removeItem("closeSipSession");
+  localStorage.removeItem("isIncomingInviteWaiting");
+  localStorage.removeItem("isActiveCall");
+  localStorage.removeItem("activeCallBtnState");
+  localStorage.setItem("closeSipSession", "close");
+});
 
 var userAgent;
 var session;
@@ -29,11 +28,6 @@ function handleStorageEvents(event) {
   console.log("Catch event WSP", event);
   switch (event.key) {
     case "closeSipSession":
-      localStorage.removeItem("closeSipSession");
-      localStorage.removeItem("isIncomingInviteWaiting");
-      localStorage.removeItem("isActiveCall");
-      localStorage.removeItem("activeCallBtnState");
-      localStorage.setItem("closeSipSession", "close");
       handleCloseSipSessionEvent(event.newValue);
       break;
     case "onIncomingInviteAnswer":
